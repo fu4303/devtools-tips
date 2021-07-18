@@ -5,7 +5,7 @@ const token = process.env.AUTHOR_API_TOKEN;
 
 async function getTipAuthors(tipPath) {
     try {
-        const response = await fetch(`https://api.github.com/repos/captainbrosset/devtools-tips/commits?path=${tipPath}`, {
+        const response = await fetch(`https://api.github.com/repos/fu4303/devtools-tips/commits?path=${tipPath}`, {
             headers: {
                 Authorization: `token ${token}`
             }
@@ -17,7 +17,7 @@ async function getTipAuthors(tipPath) {
                 // Warning: if you ever feel like getting d.author instead, so you can link to github profiles, please remember that
                 // not all commits on github are linked to an actual github user, and so d.author may be null.
                 name: d.commit.author.name,
-                url: `https://github.com/captainbrosset/devtools-tips/commit/${d.sha}`
+                url: `https://github.com/fu4303/devtools-tips/commit/${d.sha}`
             };
         }).filter(d => {
             if (alreadySeenAuthors.has(d.name)) {
